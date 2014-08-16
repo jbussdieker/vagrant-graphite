@@ -1,0 +1,31 @@
+FORGE
+  remote: https://forgeapi.puppetlabs.com
+  specs:
+    jfryman-nginx (0.0.10)
+      puppetlabs-apt (>= 1.0.0)
+      puppetlabs-concat (>= 1.1.0)
+      puppetlabs-stdlib (>= 3.0.0)
+    puppetlabs-apt (1.6.0)
+      puppetlabs-stdlib (>= 2.2.1)
+    puppetlabs-concat (1.1.0)
+      puppetlabs-stdlib (>= 4.0.0)
+    puppetlabs-stdlib (4.3.2)
+    puppetlabs-vcsrepo (1.1.0)
+    zooz-uwsgi (0.0.1)
+
+GIT
+  remote: git://github.com/jbussdieker/puppet-carbon.git
+  ref: master
+  sha: 076a8c83f7c053229dc90b233fa820d5137c41f7
+  specs:
+    jbussdieker-carbon (0.0.1)
+      puppetlabs-concat (>= 1.1.0)
+      puppetlabs-stdlib (>= 3.0.0)
+      puppetlabs-vcsrepo (>= 1.0.0)
+
+DEPENDENCIES
+  jbussdieker-carbon (>= 0)
+  jfryman-nginx (>= 0)
+  puppetlabs-vcsrepo (>= 0)
+  zooz-uwsgi (>= 0)
+

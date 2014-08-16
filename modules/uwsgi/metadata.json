@@ -1,0 +1,26 @@
+{
+  "name": "zooz-uwsgi",
+  "version": "0.0.1",
+  "source": "UNKNOWN",
+  "author": "zooz",
+  "license": "Apache License, Version 2.0",
+  "summary": "Puppet module for uWSGI server and apps management",
+  "description": "This module installs and configures uWSGI Emperor\n    service and applications.",
+  "project_page": "UNKNOWN",
+  "dependencies": [
+
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "Modulefile": "3cd0a850a21bd92871d03dddccd02c3c",
+    "README.md": "fa98510d1df00e37a423124824977f61",
+    "files/uwsgi_upstart.conf": "5fd02d5bc0922a316bd838078c151ae1",
+    "manifests/app.pp": "75a0468ebfcd85ed4e67cf4af5bc0951",
+    "manifests/init.pp": "3caeec2512da0f7f1008e6a691fcb4c8",
+    "manifests/manage_app.pp": "87d658da133b646f7adcd4a935760001",
+    "templates/uwsgi.ini.erb": "9c2662a34606ca5c6e531f74aaac2c50",
+    "templates/uwsgi_app.ini.erb": "9cc53299f0b76e3ab09192989432ca8c"
+  }
+}
