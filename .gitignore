@@ -3,3 +3,10 @@
 /.tmp/
 /modules/carbon
 /modules/whisper
+
+/modules/uwsgi
+/modules/nginx
+/modules/vcsrepo
+/modules/stdlib
+/modules/apt
+/modules/concat
