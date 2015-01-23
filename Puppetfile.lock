@@ -23,8 +23,16 @@ GIT
       puppetlabs-stdlib (>= 3.0.0)
       puppetlabs-vcsrepo (>= 1.0.0)
 
+GIT
+  remote: git://github.com/jbussdieker/puppet-whisper.git
+  ref: master
+  sha: 757caf3d00b2f077edffbb1ec900165e06034863
+  specs:
+    jbussdieker-whisper (0.0.1)
+
 DEPENDENCIES
   jbussdieker-carbon (>= 0)
+  jbussdieker-whisper (>= 0)
   jfryman-nginx (>= 0)
   puppetlabs-vcsrepo (>= 0)
   zooz-uwsgi (>= 0)
