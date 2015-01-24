@@ -2,17 +2,14 @@ classes:
  - git
  - whisper
  - carbon
-# - carbon::cache
-whisper::ensure: '0.9.13'
+ - graphite_web
+# - nginx
+# - uwsgi
+
 carbon::revision: '0.9.13-pre1'
-carbon::relays:
-  'a':
-    relay_method: 'consistent-hashing'
-    destinations:
-      - 127.0.0.1:2104:shard0
-      - 127.0.0.1:2204:shard1
-      - 127.0.0.1:2304:shard2
-      - 127.0.0.1:2404:shard3
+graphite_web::revision: '0.9.13-pre1'
+whisper::ensure: '0.9.13'
+
 carbon::caches:
   'shard0':
     local_data_dir: '/tmp/shard0'
@@ -34,19 +31,23 @@ carbon::caches:
     line_receiver_port: 2403
     pickle_receiver_port: 2404
     cache_query_port: 7402
-# - nginx
-# - graphite
-# - carbon
-# - carbon::relay
-# - carbon::aggregator
-# - uwsgi
-#graphite::version: 0.9.11
+
+carbon::relays:
+  'a':
+    relay_method: 'consistent-hashing'
+    destinations:
+      - 127.0.0.1:2104:shard0
+      - 127.0.0.1:2204:shard1
+      - 127.0.0.1:2304:shard2
+      - 127.0.0.1:2404:shard3
+
 #nginx::nginx_vhosts:
 #  'graphite':
 #    listen_port: '8080'
 #    location_custom_cfg:
 #      uwsgi_pass: 127.0.0.1:8081
 #      include: uwsgi_params
+
 #uwsgi::app:
 #  'graphite':
 #    ensure: 'present'
