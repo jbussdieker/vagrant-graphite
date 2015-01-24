@@ -9,6 +9,8 @@ FORGE
       puppetlabs-stdlib (>= 2.2.1)
     puppetlabs-concat (1.1.2)
       puppetlabs-stdlib (< 5.0.0, >= 3.2.0)
+    puppetlabs-git (0.3.0)
+      puppetlabs-vcsrepo (>= 0.1.0)
     puppetlabs-stdlib (4.5.1)
     puppetlabs-vcsrepo (1.2.0)
     zooz-uwsgi (0.0.1)
@@ -16,7 +18,7 @@ FORGE
 GIT
   remote: git://github.com/jbussdieker/puppet-carbon.git
   ref: master
-  sha: 5f9b2eea58a6573e0e4806b30f10250eccc8f83e
+  sha: ebc46312271c52e814e6cb02996fdcd867d0b95d
   specs:
     jbussdieker-carbon (0.0.1)
       puppetlabs-concat (>= 1.1.0)
@@ -26,7 +28,7 @@ GIT
 GIT
   remote: git://github.com/jbussdieker/puppet-whisper.git
   ref: master
-  sha: 757caf3d00b2f077edffbb1ec900165e06034863
+  sha: 3e66532e8578e71940a5d844f311049aafa453c3
   specs:
     jbussdieker-whisper (0.0.1)
 
@@ -34,6 +36,7 @@ DEPENDENCIES
   jbussdieker-carbon (>= 0)
   jbussdieker-whisper (>= 0)
   jfryman-nginx (>= 0)
+  puppetlabs-git (>= 0)
   puppetlabs-vcsrepo (>= 0)
   zooz-uwsgi (>= 0)
 

@@ -10,3 +10,4 @@
 /modules/stdlib
 /modules/apt
 /modules/concat
+/modules/git

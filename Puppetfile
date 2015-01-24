@@ -1,6 +1,7 @@
 forge 'https://forgeapi.puppetlabs.com'
 
 mod 'puppetlabs/vcsrepo'
+mod 'puppetlabs/git'
 mod 'zooz/uwsgi'
 mod 'jfryman/nginx'
 mod 'jbussdieker/whisper', :git => "git://github.com/jbussdieker/puppet-whisper.git"

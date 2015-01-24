@@ -1,25 +1,59 @@
 classes:
  - git
- - nginx
- - graphite
+ - whisper
  - carbon
- - carbon::relay
- - carbon::aggregator
- - uwsgi
-graphite::version: 0.9.11
-nginx::nginx_vhosts:
-  'graphite':
-    listen_port: '8080'
-    location_custom_cfg:
-      uwsgi_pass: 127.0.0.1:8081
-      include: uwsgi_params
-uwsgi::app:
-  'graphite':
-    ensure: 'present'
-    uid: 'www-data'
-    gid: 'www-data'
-    config:
-      socket: ':8081'
-      processes: 4
-      wsgi-file: '/opt/graphite/conf/graphite.wsgi'
-      plugins: python
+# - carbon::cache
+whisper::ensure: '0.9.13'
+carbon::revision: '0.9.13-pre1'
+carbon::relays:
+  'a':
+    relay_method: 'consistent-hashing'
+    destinations:
+      - 127.0.0.1:2104:shard0
+      - 127.0.0.1:2204:shard1
+      - 127.0.0.1:2304:shard2
+      - 127.0.0.1:2404:shard3
+carbon::caches:
+  'shard0':
+    local_data_dir: '/tmp/shard0'
+    line_receiver_port: 2103
+    pickle_receiver_port: 2104
+    cache_query_port: 7102
+  'shard1':
+    local_data_dir: '/tmp/shard1'
+    line_receiver_port: 2203
+    pickle_receiver_port: 2204
+    cache_query_port: 7202
+  'shard2':
+    local_data_dir: '/tmp/shard2'
+    line_receiver_port: 2303
+    pickle_receiver_port: 2304
+    cache_query_port: 7302
+  'shard3':
+    local_data_dir: '/tmp/shard3'
+    line_receiver_port: 2403
+    pickle_receiver_port: 2404
+    cache_query_port: 7402
+# - nginx
+# - graphite
+# - carbon
+# - carbon::relay
+# - carbon::aggregator
+# - uwsgi
+#graphite::version: 0.9.11
+#nginx::nginx_vhosts:
+#  'graphite':
+#    listen_port: '8080'
+#    location_custom_cfg:
+#      uwsgi_pass: 127.0.0.1:8081
+#      include: uwsgi_params
+#uwsgi::app:
+#  'graphite':
+#    ensure: 'present'
+#    uid: 'www-data'
+#    gid: 'www-data'
+#    config:
+#      socket: ':8081'
+#      processes: 4
+#      wsgi-file: '/opt/graphite/conf/graphite.wsgi'
+#      plugins: python
