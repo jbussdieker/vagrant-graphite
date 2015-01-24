@@ -26,6 +26,13 @@ GIT
       puppetlabs-vcsrepo (>= 1.0.0)
 
 GIT
+  remote: git://github.com/jbussdieker/puppet-graphite_web.git
+  ref: master
+  sha: 972e53df22fbbab3e20d48f75d181925b6da1e00
+  specs:
+    jbussdieker-graphite_web (0.0.1)
+
+GIT
   remote: git://github.com/jbussdieker/puppet-whisper.git
   ref: master
   sha: 3e66532e8578e71940a5d844f311049aafa453c3
@@ -34,6 +41,7 @@ GIT
 
 DEPENDENCIES
   jbussdieker-carbon (>= 0)
+  jbussdieker-graphite_web (>= 0)
   jbussdieker-whisper (>= 0)
   jfryman-nginx (>= 0)
   puppetlabs-git (>= 0)
