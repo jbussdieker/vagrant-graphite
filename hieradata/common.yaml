@@ -3,8 +3,6 @@ classes:
  - whisper
  - carbon
  - graphite_web
- - nginx
- - uwsgi
 
 carbon::revision: '0.9.13-pre1'
 graphite_web::revision: '0.9.13-pre1'
@@ -41,10 +39,8 @@ carbon::relays:
       - 127.0.0.1:2304:shard2
       - 127.0.0.1:2404:shard3
 
-nginx::nginx_vhosts:
-  'graphite':
-    listen_port: '8080'
-    location_custom_cfg:
-      uwsgi_pass: 127.0.0.1:8081
-      include: uwsgi_params
-
+graphite_web::data_dirs:
+  - /tmp/shard0
+  - /tmp/shard1
+  - /tmp/shard2
+  - /tmp/shard3

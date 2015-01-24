@@ -28,7 +28,7 @@ GIT
 GIT
   remote: git://github.com/jbussdieker/puppet-graphite_web.git
   ref: master
-  sha: 8fe5448eccca2b0d0d67e98d8841575f1befdd9b
+  sha: e361706833ab1702a9354618fa3bfc5d1d40476b
   specs:
     jbussdieker-graphite_web (0.0.1)
 
