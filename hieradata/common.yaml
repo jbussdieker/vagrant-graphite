@@ -40,7 +40,7 @@ carbon::relays:
       - 127.0.0.1:2404:shard3
 
 graphite_web::data_dirs:
-  - /tmp/shard0
-  - /tmp/shard1
-  - /tmp/shard2
-  - /tmp/shard3
+ - /tmp/shard0
+ - /tmp/shard1
+ - /tmp/shard2
+ - /tmp/shard3
