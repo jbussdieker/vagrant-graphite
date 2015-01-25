@@ -7,12 +7,12 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "http://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
 
-  config.vm.network "private_network"
+  config.vm.network "private_network", type: "dhcp"
 
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
-  config.vm.network "forwarded_port", guest: 2003, host: 2003
-  config.vm.network "forwarded_port", guest: 2004, host: 2004
-  config.vm.network "forwarded_port", guest: 7002, host: 7002
+  config.vm.network "forwarded_port", guest: 8080, host: 8080, auto_correct: true
+  config.vm.network "forwarded_port", guest: 2003, host: 2003, auto_correct: true
+  config.vm.network "forwarded_port", guest: 2004, host: 2004, auto_correct: true
+  config.vm.network "forwarded_port", guest: 7002, host: 7002, auto_correct: true
 
   config.vm.provision "puppet" do |puppet|
     puppet.manifests_path = "manifests"
