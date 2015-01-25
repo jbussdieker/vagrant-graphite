@@ -1,5 +1,5 @@
-ec2.yaml
 /.vagrant/
 /.librarian/
 /.tmp/
 /modules
+/config/aws.yaml
