@@ -14,17 +14,23 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 2004, host: 2004, auto_correct: true
   config.vm.network "forwarded_port", guest: 7002, host: 7002, auto_correct: true
 
+  # VirtualBox Provider Config
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 512
+    v.cpus = 1
+  end
+
   # AWS Provider Config
   require 'yaml'
   aws_config = YAML.load(File.read("config/aws.yaml"))
 
   config.vm.provider :aws do |aws, override|
-    config.vm.box = "dummy"
     aws_config.each do |k, v|
       aws.send("#{k}=", v)
     end
     override.ssh.username = "ubuntu"
     override.ssh.private_key_path = "/Users/jbussdieker/.ssh/id_rsa"
+    override.vm.box = "dummy"
   end
 
   # Puppet Provisioner Config
