@@ -51,7 +51,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define name do |box|
       box.vm.hostname = name
       box.vm.provider :aws do |aws, override|
-      aws.user_data = <<EOS
+        aws.tags = {
+          'Name' => name,
+        }
+        aws.user_data = <<EOS
 #cloud-config
 hostname: #{name}
 packages:
