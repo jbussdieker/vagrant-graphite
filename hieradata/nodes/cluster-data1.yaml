@@ -10,13 +10,6 @@ carbon::caches:
     pickle_receiver_port: 2204
     cache_query_port: 7202
 
-carbon::relays:
-  'relay':
-    relay_method: 'consistent-hashing'
-    destinations:
-      - 127.0.0.1:2104:shard0
-      - 127.0.0.1:2204:shard1
-
 graphite_web::data_dirs:
  - /tmp/shard0
  - /tmp/shard1

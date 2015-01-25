@@ -1,0 +1,14 @@
+read_ip() {
+  HOST=$1
+  vagrant ssh $HOST -c "ip addr show eth1" 2>/dev/null | grep 'inet ' | awk '{split($2,h,"/"); print h[1]}'
+}
+
+update_ip() {
+  HOST=$1
+  IP=$(read_ip $HOST)
+  TARGET=$2
+  vagrant ssh $TARGET -c "sudo su -c \"echo '$IP $HOST' >> /etc/hosts\""
+}
+
+update_ip graphite-cluster-data1 graphite-cluster-lb1
+update_ip graphite-cluster-data2 graphite-cluster-lb1
