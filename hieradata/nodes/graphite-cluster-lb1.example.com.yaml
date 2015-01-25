@@ -1,0 +1,3 @@
+graphite_web::cluster_hosts:
+ - graphite-cluster-data1
+ - graphite-cluster-data2

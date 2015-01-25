@@ -1,0 +1,6 @@
+carbon::caches:
+  'cache':
+    local_data_dir: '/opt/graphite/storage/whisper'
+    line_receiver_port: 2003
+    pickle_receiver_port: 2004
+    cache_query_port: 7002
