@@ -2,11 +2,11 @@ carbon::relays:
   'relay':
     relay_method: 'consistent-hashing'
     destinations:
-      - graphite-cluster-data1:2104:shard0
-      - graphite-cluster-data1:2204:shard1
-      - graphite-cluster-data2:2304:shard2
-      - graphite-cluster-data2:2404:shard3
+      - cluster-data1:2104:shard0
+      - cluster-data1:2204:shard1
+      - cluster-data2:2304:shard2
+      - cluster-data2:2404:shard3
 
 graphite_web::cluster_servers:
- - graphite-cluster-data1:8080
- - graphite-cluster-data2:8080
+ - cluster-data1:8080
+ - cluster-data2:8080

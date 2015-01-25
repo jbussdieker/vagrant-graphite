@@ -10,5 +10,7 @@ update_ip() {
   vagrant ssh $TARGET -c "sudo su -c \"echo '$IP $HOST' >> /etc/hosts\""
 }
 
-update_ip graphite-cluster-data1 graphite-cluster-lb1
-update_ip graphite-cluster-data2 graphite-cluster-lb1
+update_ip cluster-data1 cluster-lb1
+update_ip cluster-data2 cluster-lb1
+update_ip cluster-data1 cluster-lb2
+update_ip cluster-data2 cluster-lb2

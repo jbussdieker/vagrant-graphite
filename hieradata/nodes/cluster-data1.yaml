@@ -10,6 +10,9 @@ carbon::caches:
     pickle_receiver_port: 2204
     cache_query_port: 7202
 
+graphite_web::carbonlink_hosts:
+ - 127.0.0.1:7102:shard0
+ - 127.0.0.1:7202:shard1
 graphite_web::data_dirs:
  - /tmp/shard0
  - /tmp/shard1
