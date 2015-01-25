@@ -12,5 +12,12 @@ update_ip() {
 
 update_ip cluster-data1 cluster-lb1
 update_ip cluster-data2 cluster-lb1
+
 update_ip cluster-data1 cluster-lb2
 update_ip cluster-data2 cluster-lb2
+
+update_ip cluster-lb1 cluster-data1
+update_ip cluster-lb2 cluster-data1
+
+update_ip cluster-lb1 cluster-data2
+update_ip cluster-lb2 cluster-data2
