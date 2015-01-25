@@ -7,6 +7,21 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "http://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
 
+  require 'yaml'
+  ec2_config = YAML.load(File.read("ec2.yaml"))
+
+  config.vm.provider :aws do |aws, override|
+    config.vm.box = "dummy"
+    aws.access_key_id = ec2_config[:access_key_id]
+    aws.secret_access_key = ec2_config[:secret_access_key]
+    aws.ami = ec2_config[:ami]
+    aws.instance_type = ec2_config[:instance_type]
+    aws.region = ec2_config[:region]
+    aws.keypair_name = ec2_config[:keypair_name]
+    override.ssh.username = "ubuntu"
+    override.ssh.private_key_path = "/Users/jbussdieker/.ssh/id_rsa"
+  end
+
   config.vm.network "private_network", type: "dhcp"
 
   config.vm.network "forwarded_port", guest: 8080, host: 8080, auto_correct: true
@@ -29,6 +44,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.define name do |box|
       box.vm.hostname = name
+    end
+
+    config.vm.provider :aws do |aws, override|
+      aws.user_data = <<EOS
+#cloud-config
+hostname: #{name}
+packages:
+- puppet
+EOS
     end
   end
 end
