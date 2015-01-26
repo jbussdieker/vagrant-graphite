@@ -1,0 +1,21 @@
+classes:
+ - collectd
+
+carbon::caches:
+  'cache':
+    local_data_dir: '/opt/graphite/storage/whisper'
+    line_receiver_port: 2003
+    pickle_receiver_port: 2004
+    cache_query_port: 7002
+    carbon_metric_interval: 1 # Be sure to match schema retention with this
+carbon::schemas:
+  'carbon':
+    pattern: '^carbon\.'
+    retentions: '1s:1d' # Should match carbon metric_interval
+  'collectd':
+    pattern: '^collectd\.'
+    retentions: '1s:1d'
+  'default_1sec_for_1day':
+    pattern: '.*'
+    retentions: '1s:1d'
+collectd::interval: 1

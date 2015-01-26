@@ -1,0 +1,49 @@
+FQDNLookup true
+Interval <%= @interval %>
+LoadPlugin syslog
+<Plugin syslog>
+  LogLevel info
+</Plugin>
+LoadPlugin battery
+LoadPlugin cpu
+LoadPlugin df
+LoadPlugin disk
+LoadPlugin entropy
+LoadPlugin interface
+LoadPlugin irq
+LoadPlugin load
+LoadPlugin memory
+LoadPlugin processes
+LoadPlugin rrdtool
+LoadPlugin swap
+LoadPlugin users
+LoadPlugin write_graphite
+<Plugin df>
+  FSType rootfs
+  FSType sysfs
+  FSType proc
+  FSType devtmpfs
+  FSType devpts
+  FSType tmpfs
+  FSType fusectl
+  FSType cgroup
+  IgnoreSelected true
+</Plugin>
+<Plugin rrdtool>
+  DataDir "/var/lib/collectd/rrd"
+</Plugin>
+<Plugin write_graphite>
+  <Node "example">
+    Host "<%= @graphite_host %>"
+    Port "<%= @graphite_port %>"
+    Protocol "<%= @graphite_protocol %>"
+    LogSendErrors true
+    Prefix "<%= @graphite_prefix %>"
+    StoreRates true
+    AlwaysAppendDS false
+    EscapeCharacter "_"
+  </Node>
+</Plugin>
+<Include "/etc/collectd/collectd.conf.d">
+  Filter "*.conf"
+</Include>
