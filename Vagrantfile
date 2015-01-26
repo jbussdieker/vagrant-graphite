@@ -57,6 +57,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         aws.user_data = <<EOS
 #cloud-config
 hostname: #{name}
+manage_etc_hosts: localhost
 packages:
 - puppet
 EOS
