@@ -18,7 +18,7 @@ FORGE
 GIT
   remote: git://github.com/jbussdieker/puppet-carbon.git
   ref: master
-  sha: 6437124efb351c096613eb3ed31b9393d480ec14
+  sha: f6efcd94a1a401a28ec0155c558f865fbee75c5f
   specs:
     jbussdieker-carbon (0.0.1)
       puppetlabs-concat (>= 1.1.0)
