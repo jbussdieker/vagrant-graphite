@@ -3,11 +3,12 @@ classes:
 
 carbon::caches:
   'cache':
-    local_data_dir: '/opt/graphite/storage/whisper'
+    local_data_dir: '/mnt'
     line_receiver_port: 2003
     pickle_receiver_port: 2004
     cache_query_port: 7002
     carbon_metric_interval: 1 # Be sure to match schema retention with this
+    max_creates_per_minute: 'inf'
 carbon::schemas:
   'carbon':
     pattern: '^carbon\.'
@@ -19,3 +20,4 @@ carbon::schemas:
     pattern: '.*'
     retentions: '1s:1d'
 collectd::interval: 1
+graphite_web::whisper_dir: '/mnt'
