@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+require 'socket'
+
+s = TCPSocket.new("localhost", 2003)
+
+curtime = Time.now - (60 + 5 * 60)
+val = 0
+
+last = 1422330000
+
+59.times do
+  #if Time.now - last > 1.0
+    last += 1.0
+    val += 1
+    metric = "test #{val} #{last.to_i}"
+    puts(metric)
+    s.puts(metric)
+  #end
+end
+
+sleep 60
+
+exit
+  
+
+60.times do |i|
+  #val = (rand * 50).to_i
+  val += 1
+  s.puts("test #{val} #{curtime.to_i}")
+  curtime += 1
+end
+
+5.times do |i|
+  #val = (rand * 50 * 60).to_i
+  val += 1
+  s.puts("test #{val} #{curtime.to_i}")
+  curtime += 60
+end

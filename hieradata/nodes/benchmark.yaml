@@ -16,6 +16,9 @@ carbon::schemas:
   'collectd':
     pattern: '^collectd\.'
     retentions: '1s:1d'
+  'krux':
+    pattern: '^krux\.'
+    retentions: '1s:6h,1m:15d,10m:5y'
   'default_1sec_for_1day':
     pattern: '.*'
     retentions: '1s:1d'
