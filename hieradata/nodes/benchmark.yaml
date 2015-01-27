@@ -36,6 +36,7 @@ carbon::schemas:
   'default_1sec_for_1day':
     pattern: '.*'
     retentions: '1s:1d'
+    order: 99
 collectd::interval: 1
 graphite_web::carbonlink_hosts:
  - 127.0.0.1:7102:a
