@@ -21,16 +21,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # AWS Provider Config
-  require 'yaml'
-  aws_config = YAML.load(File.read("config/aws.yaml"))
+  if File.exists? "config/aws.yaml"
+    require 'yaml'
+    aws_config = YAML.load(File.read("config/aws.yaml"))
 
-  config.vm.provider :aws do |aws, override|
-    aws_config.each do |k, v|
-      aws.send("#{k}=", v)
+    config.vm.provider :aws do |aws, override|
+      aws_config.each do |k, v|
+        aws.send("#{k}=", v)
+      end
+      override.ssh.username = "ubuntu"
+      override.ssh.private_key_path = "/Users/jbussdieker/.ssh/id_rsa"
+      override.vm.box = "dummy"
     end
-    override.ssh.username = "ubuntu"
-    override.ssh.private_key_path = "/Users/jbussdieker/.ssh/id_rsa"
-    override.vm.box = "dummy"
   end
 
   # Puppet Provisioner Config
